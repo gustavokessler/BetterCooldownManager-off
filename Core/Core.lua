@@ -14,6 +14,7 @@ function BetterCooldownManager:OnInitialize()
 end
 
 function BetterCooldownManager:OnEnable()
+    BCDM:CheckAddOns()
     BCDM:Init()
     BCDM:SetupEventManager()
     BCDM:SkinCooldownManager()

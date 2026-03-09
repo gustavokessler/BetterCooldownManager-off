@@ -1155,7 +1155,7 @@ local function CreateGlobalSettings(parentContainer)
     local disableAuraOverlayCheckbox = AG:Create("CheckBox")
     disableAuraOverlayCheckbox:SetLabel(LL("Disable Aura Overlay"))
     disableAuraOverlayCheckbox:SetValue(CooldownManagerDB.General.DisableAuraOverlay)
-    disableAuraOverlayCheckbox:SetCallback("OnValueChanged", function(_, _, value) CooldownManagerDB.General.DisableAuraOverlay = value BCDM:RefreshAuraOverlayRemoval() end)
+    disableAuraOverlayCheckbox:SetCallback("OnValueChanged", function(_, _, value) CooldownManagerDB.General.DisableAuraOverlay = value BCDM:PromptReload() end)
     disableAuraOverlayCheckbox:SetRelativeWidth(0.33)
     globalSettingsContainer:AddChild(disableAuraOverlayCheckbox)
 

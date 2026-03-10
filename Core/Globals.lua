@@ -225,7 +225,7 @@ function BCDM:Init()
     SetupSlashCommands()
     BCDM:ResolveLSM()
     BCDM:NormalizeCustomSpellSpecTokens()
-    if C_AddOns.IsAddOnLoaded("Blizzard_CooldownViewer") then C_AddOns.LoadAddOn("Blizzard_CooldownViewer") end
+    if not C_AddOns.IsAddOnLoaded("Blizzard_CooldownViewer") then C_AddOns.LoadAddOn("Blizzard_CooldownViewer") end
 end
 
 function BCDM:CopyTable(defaultTable)
@@ -323,7 +323,7 @@ end
 
 
 function BCDM:OpenURL(title, urlText)
-    StaticPopupDialogs["UUF_URL_POPUP"] = {
+    StaticPopupDialogs["BCDM_URL_POPUP"] = {
         text = title or "",
         button1 = CLOSE,
         hasEditBox = true,
@@ -340,7 +340,7 @@ function BCDM:OpenURL(title, urlText)
         hideOnEscape = true,
         preferredIndex = 3,
     }
-    local urlDialog = StaticPopup_Show("UUF_URL_POPUP")
+    local urlDialog = StaticPopup_Show("BCDM_URL_POPUP")
     if urlDialog then
         urlDialog:SetFrameStrata("TOOLTIP")
     end
@@ -348,7 +348,7 @@ function BCDM:OpenURL(title, urlText)
 end
 
 function BCDM:CreatePrompt(title, text, onAccept, onCancel, acceptText, cancelText)
-    StaticPopupDialogs["UUF_PROMPT_DIALOG"] = {
+    StaticPopupDialogs["BCDM_PROMPT_DIALOG"] = {
         text = text or "",
         button1 = acceptText or ACCEPT,
         button2 = cancelText or CANCEL,
@@ -368,7 +368,7 @@ function BCDM:CreatePrompt(title, text, onAccept, onCancel, acceptText, cancelTe
         preferredIndex = 3,
         showAlert = true,
     }
-    local promptDialog = StaticPopup_Show("UUF_PROMPT_DIALOG", title, text)
+    local promptDialog = StaticPopup_Show("BCDM_PROMPT_DIALOG", title, text)
     if promptDialog then
         promptDialog.data = { onAccept = onAccept, onCancel = onCancel }
         promptDialog:SetFrameStrata("TOOLTIP")

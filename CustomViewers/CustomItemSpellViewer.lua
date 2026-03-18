@@ -491,7 +491,7 @@ local function CreateCustomSpellIcon(spellId)
             local spellCharges = C_Spell.GetSpellCharges(spellId)
             if spellCharges then
                 customIcon.Charges:SetText(tostring(spellCharges.currentCharges))
-                local spellChargeCooldown = C_Spell.GetSpellChargeCooldown(spellId)
+                local spellChargeCooldown = C_Spell.GetSpellChargeDuration(spellId)
                 customIcon.Cooldown:SetCooldownFromDurationObject(spellChargeCooldown, true)
             else
                 local spellCooldown = C_Spell.GetSpellCooldownDuration(spellId)

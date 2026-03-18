@@ -2187,7 +2187,7 @@ local function CreateCooldownViewerSettings(parentContainer, viewerType)
         itemContainer:SetFullWidth(true)
         itemContainer:SetLayout("Flow")
         ScrollFrame:AddChild(itemContainer)
-        CreateInformationTag(itemSpellContainer, LL("Tracking |cFF8080FFmultiple ranks|r of the same item is supported & will display the item with the highest rank."));
+        CreateInformationTag(itemContainer, LL("Tracking |cFF8080FFmultiple ranks|r of the same item is supported & will display the item with the highest rank."));
         CreateCooldownViewerItemSettings(itemContainer, ScrollFrame)
     end
 
